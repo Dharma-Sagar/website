@@ -1,0 +1,20 @@
+<div class="heading">
+    <h3>Latest Events</h3>
+    <a routerLink="event" class="btn btn-sm float-right">See All</a>
+</div>
+<div class="event_list event-list-alignemt">
+    <ul>
+        <!-- Data -->
+        <li *ngFor="let item of getRecentPost() | slice:0:3">
+            <div class="event_info">
+                <h6><a routerLink="/event-details/{{item.id}}">{{item.title | slice:0:25}}..</a></h6>
+                <ul>
+                    <li><i class="far fa-clock"></i> {{item.timeday}}</li>
+                    <li><i class="fas fa-map-marker-alt"></i>{{item.location}}</li>
+                </ul>
+                <div class="event_date" [innerHtml]="getDateInitial(item.date)"></div>
+            </div>
+        </li>
+        <!-- Data -->
+    </ul>
+</div>

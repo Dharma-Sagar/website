@@ -1,0 +1,19 @@
+<div class="sidebar_wrap">
+    <div class="sidebar_widgets p-0">
+        <div class="popular_sermon">
+            <div class="sidebar_title">
+                <h6>Popular Sermons</h6>
+            </div>
+            <!-- Data -->
+            <div class="sermons_list" *ngFor="let item of getRecentPost()">
+                <h6><a routerLink="/sermon-details/{{item.id}}">{{item.title}}</a></h6>
+                <ul class="sermons_meta">
+                    <li><i class="fa fa-user"></i> Message from <a routerLink="/sermon/author/{{author.id}}"
+                        *ngFor="let author of getAuthor(item.author)">{{author.name}}</a></li>
+                    <li><i class="far fa-calendar-alt"></i> {{item.postdate}}</li>
+                </ul>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+</div>

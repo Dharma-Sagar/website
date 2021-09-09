@@ -1,0 +1,31 @@
+<section class="section-padding pt-0" *ngFor="let product of shopdetails">
+    <div class="container tl-bg-color">
+        <div class="row">
+            <div class="col-lg-12 sa-pdrl8">
+                <div class="tl-shop-title-area d-flex justify-content-between">
+                    <div class="tl-shop-title">
+                        <h2>Similar Products</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+            <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let item of getProductByCategory(product.category) | slice:0:4">
+                <div class="img-shop-wrapper tl-shop-single">
+                    <div class="tl-img-shop">
+                        <img [src]="item.image[0]" [alt]="item.title" class="mx-auto image-fluid d-block">
+                    </div>
+                    <div class="tl-product-content">
+                        <h4><a routerLink="/shop-details/{{item.id}}">{{item.title}}</a></h4>
+                        <p>${{item.price | number:'1.2-2'}}</p>
+                        <!-- Cart -->
+                        <a href="javascript:void(0)" class="btn btn-sm" (click)="handleAddToCart(item)"
+                            *ngIf="item.stock">Add To Cart</a>
+                        <a href="javascript:void(0)" class="btn btn-sm" *ngIf="!item.stock"
+                            (click)="handleOutofStock()">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+</section>

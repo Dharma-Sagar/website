@@ -1,0 +1,50 @@
+<section class="latest_blog section-padding" id="blog">
+    <div class="container">
+        <div class="blog">
+            <div class="section-header-center text-center">
+                <h3>Latest News</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                    alteration in some</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <owl-carousel-o [options]="settings" class="blog-slider">
+                        <!-- Data -->
+                        <ng-container *ngFor="let item of getRecentPost()">
+                            <ng-template carouselSlide>
+                                <!-- Data -->
+                                <div class="item">
+                                    <article class="blog-section">
+                                        <div class="blog_wrap position-relative">
+                                            <div class="blog-post-date" [innerHtml]="getDateInitial(item.postdate)">
+                                            </div>
+                                            <div class="blog_img">
+                                                <a routerLink="/blog-details/{{item.id}}"><img [src]="item.image"
+                                                        [alt]="item.title"></a>
+                                            </div>
+                                            <div class="blog_info">
+                                                <div class="post_meta">
+                                                    <!-- Data -->
+                                                    <span *ngFor="let tag of getTags(item.tags) | slice:0:2"><a
+                                                            routerLink="/blog/tag/{{tag.id}}">{{tag.title}}</a></span>
+                                                    <!-- Data -->
+                                                </div>
+                                                <h5><a routerLink="/blog-details/{{item.id}}">{{item.title}}</a>
+                                                </h5>
+                                                <p>{{item.shorttext | slice:0:170}}</p>
+                                                <a routerLink="/blog-details/{{item.id}}" class="btn">Read More <i
+                                                        class="fa fa-caret-right"></i> </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                <!-- Data -->
+                            </ng-template>
+                        </ng-container>
+                        <!-- Data -->
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

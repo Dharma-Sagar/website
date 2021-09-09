@@ -1,0 +1,37 @@
+<div class="heading">
+    <h3>Latest Events</h3>
+    <div class="tl-slider-arrow float-right">
+        <div class="tl-left-arrow slick-arrow mr-2">
+            <span><i class="fa fa-chevron-up"></i></span>
+        </div>
+        <div class="tl-right-arrow slick-arrow">
+            <span><i class="fa fa-chevron-down"></i></span>
+        </div>
+    </div>
+</div>
+<ngx-slick-carousel #slickModal="slick-carousel" [config]="settings" class="event_list event-slider slick-vertical">
+    <!-- Data -->
+    <div ngxSlickItem class="event-slider-item pb-4" *ngFor="let item of getRecentPost()">
+        <div class="row">
+            <div class="col-12">
+                <div class="event-list">
+                    <ul>
+                        <!-- Data -->
+                        <li>
+                            <div class="event_info">
+                                <div class="event_date" [innerHtml]="getDateInitial(item.date)"></div>
+                                <h6><a routerLink="/event-details/{{item.id}}">{{item.title | slice:0:25}}..</a></h6>
+                                <ul>
+                                    <li><i class="far fa-clock"></i> {{item.timeday}}</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{item.location}}</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Data -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Data -->
+</ngx-slick-carousel>

@@ -1,0 +1,35 @@
+<section class="section-padding">
+    <div class="container">
+        <!-- Data -->
+        <div class="events_wrap" *ngFor="let item of eventpost | paginate: { itemsPerPage: 4, currentPage: page }">
+            <div class="event_date" [innerHtml]="getDateInitial(item.date)"></div> 
+            <div class="event_img">
+                <a routerLink="/event-details/{{item.id}}"><img [src]="item.image" [alt]="item.title"></a>
+            </div>
+            <div class="event_info">
+                <h4><a routerLink="/event-details/{{item.id}}">{{item.title}}</a></h4>
+                <p>{{item.shorttext}}</p>
+                <ul>
+                    <li><i class="far fa-clock"></i> {{item.timeday}}</li>
+                    <li><i class="fas fa-map-marker-alt"></i> {{item.location}}</li>
+                </ul>
+                <a routerLink="/event-details/{{item.id}}" class="btn">Join Now <i class="fa fa-caret-right"></i> </a>
+            </div>
+        </div>
+        <!-- /Data -->
+        <div class="divider pb-3 clearfix"></div>
+        <!-- Pagination -->
+        <div class="pagination_wrap">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Page 1 of 2</p>
+                </div>
+                <div class="col-sm-6">
+                    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+        <!-- /Pagination -->
+    </div>
+</section>

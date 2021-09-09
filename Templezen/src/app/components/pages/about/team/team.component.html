@@ -1,0 +1,37 @@
+<section class="section-padding" id="about-team">
+    <div class="container">
+        <div class="our_team">
+            <div class="section-header-center text-center">
+                <h3>Our Teachers</h3>
+                <p>Will uncover many web sites still in their infancy. Various versions have Evolved over the years</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <owl-carousel-o [options]="settings" class="team-carousel">
+                        <!-- Data -->
+                        <ng-container *ngFor="let item of author">
+                            <ng-template carouselSlide>
+                                <!-- Data -->
+                                <div class="item">
+                                    <div class="box_wrap">
+                                        <div class="team_img">
+                                            <img [src]="item.image" [alt]="item.name">
+                                            <div class="team_url"><a routerLink="/team-details/{{item.id}}"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="icon"><img src="assets/images/Tilak-team-icon.png" alt="image">
+                                        </div>
+                                        <h6>{{item.name}}</h6>
+                                        <p>{{item.post}}</p>
+                                    </div>
+                                </div>
+                                <!-- Data -->
+                            </ng-template>
+                        </ng-container>
+                        <!-- Data -->
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

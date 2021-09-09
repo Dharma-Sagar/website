@@ -1,0 +1,80 @@
+<header id="header" class="nav-stacked">
+    <!-- Header-top -->
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-4 col-8">
+                    <div class="follow_us">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 col-4">
+                    <ul class="top-btn list-inline">
+                        <li class="list-inline-item"><i class="fa fa-phone"></i><a href="#">+01 825-5552-852</a></li>
+                        <li class="list-inline-item"><i class="fa fa-envelope"></i><a href="#">example@example.com</a>
+                        </li>
+                        <li class="list-inline-item"><a routerLink="/donation"
+                                class="btn btn-sm dark-btn templezen-top-btn">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Header-top -->
+    <!-- Navigation -->
+    <nav id="navigation_bar" class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo">
+                    <a routerLink="/"><img src="assets/images/logo.png" alt="logo" /></a>
+                </div> <!-- /Logo -->
+                <div id="menu_slide" [ngClass]="navmethod ? 'mobile-open' : ''">
+                    <div id="nav-toggle-label">
+                        <div id="hamburger" (click)="toggleNav()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div id="cross" (click)="toggleNav()">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li [ngClass]="item.child === true ? 'dropdown' : ''" *ngFor="let item of navigation">
+                        <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}<span
+                                class="nav_arrow"></span></a>
+                        <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                        <ul class="sub-menu" *ngIf="item.child">
+                            <li [ngClass]="item.child === true ? 'dropdown' : ''" *ngFor="let item of item.submenu">
+                                <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}<span
+                                        class="nav_arrow"></span></a>
+                                <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                                <ul class="sub-menu" *ngIf="item.child">
+                                    <li *ngFor="let item of item.submenu">
+                                        <a routerLink="{{item.link}}">{{item.linkText}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation end -->
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu" [ngClass]="navmethod ? 'mobile-open' : ''">
+        <app-mobile-menu></app-mobile-menu>
+    </div>
+    <!-- END/Mobile Navigation -->
+</header>

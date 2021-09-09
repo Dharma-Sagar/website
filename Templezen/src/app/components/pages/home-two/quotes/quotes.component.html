@@ -1,0 +1,15 @@
+<section id="causes" class="section-padding gray_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Data -->
+                <div class="causes_info custom-text ml-0" *ngFor="let item of quotes | slice:0:1">
+                    <p class="subtitle text-white">{{item.source}}</p>
+                    <h3 class="white_text fs-36">{{item.title}}</h3>
+                    <p class="white_text mb-0">{{item.text}}</p>
+                </div>
+                <!-- Data -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-md-7">
+                <div class="about-us-content">
+                    <div class="section-header">
+                        <h2>some important life lessons from lord <u class="text-custom-primary">buddha</u></h2>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some</p>
+                    </div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                        book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.</p>
+                </div>
+            </div>
+            <div class="col-xl-5 col-md-5 align-self-center">
+                <div class="about-us-image">
+                    <img src="assets/images/lotus.png" alt="img" class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+        </div>
+        <!-- Features -->
+        <div class="features">
+            <div class="row">
+                <!-- Data -->
+                <div class="col-lg-4 col-md-6" *ngFor="let item of features">
+                    <div class="features_wrap features-after-none">
+                        <div class="f-f-icon"><img [src]="item.icon" [alt]="item.title"></div>
+                        <h4 class="text-custom-secondary">{{item.title}}</h4>
+                        <p class="mb-0">{{item.text}}</p>
+                    </div>
+                </div>
+                <!-- Data -->
+            </div>
+        </div>
+        <!-- /Features -->
+    </div>
+</section>

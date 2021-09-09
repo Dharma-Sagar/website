@@ -1,0 +1,26 @@
+<section class="sa-paster-about-section section-padding pd-default" *ngFor="let item of authordetails">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="sa-paster-about-area">
+                    <h3>{{item.name}}</h3>
+                    <p class="designation">{{item.post}}</p>
+                    <div [innerHtml]="item.htmltext"></div>
+                    <div class="sa-team-social">
+                        <h5>Social links</h5>
+                        <ul class="text-center">
+                            <!-- Data -->
+                            <li *ngFor="let social of item.social"><a href="{{social.url}}"><i [class]="social.icon"></i></a></li>
+                            <!-- Data -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 offset-xl-1 align-self-center">
+                <div class="ss-pastor-img-wrap">
+                    <img [src]="item.image" [alt]="item.name" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

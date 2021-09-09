@@ -1,0 +1,19 @@
+<section id="causes" class="section-padding gray_bg">
+    <div class="container">
+        <owl-carousel-o [options]="settings">
+            <!-- Data -->
+            <ng-container *ngFor="let item of quotes">
+                <ng-template carouselSlide>
+                    <div class="item">
+                        <div class="causes_info">
+                            <p class="subtitle text-white">{{item.source}}</p>
+                            <h3 class="white_text">{{item.title}}</h3>
+                            <p class="white_text mb-0">{{item.text}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-container>
+            <!-- Data -->
+        </owl-carousel-o>
+    </div>
+</section>

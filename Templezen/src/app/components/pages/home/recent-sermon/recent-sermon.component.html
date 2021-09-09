@@ -1,0 +1,29 @@
+<div class="heading">
+    <h3>Latest Sermons</h3>
+    <a routerLink="/sermon" class="btn btn-sm float-right">See All</a>
+</div>
+<!-- Data -->
+<ngb-accordion [closeOthers]="true" activeIds="static-1-1" class="d-block custom-accordion">
+    <ngb-panel id="static-{{item.id}}-{{1+i}}" *ngFor="let item of getRecentPost();let i = index">
+        <ng-template ngbPanelTitle>
+            {{item.title}}
+        </ng-template>
+        <ng-template ngbPanelContent>
+            <ul class="sermons_meta">
+                <li><i class="fa fa-user"></i> Message from <a routerLink="/sermon/author/{{author.id}}"
+                        *ngFor="let author of getAuthor(item.author)">{{author.name}}</a></li>
+                <li><i class="far fa-calendar-alt"></i> {{item.postdate}}</li>
+            </ul>
+            <div class="sermons_inside">
+                <ul>
+                    <!-- Data -->
+                    <li *ngFor="let include of item.includes"><a href="{{include.url}}"><i
+                                [class]="include.icon"></i></a>
+                    </li>
+                    <!-- Data -->
+                </ul>
+            </div>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+<!-- Data -->

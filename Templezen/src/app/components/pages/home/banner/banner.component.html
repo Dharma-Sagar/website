@@ -1,0 +1,20 @@
+<section id="intro">
+    <div class="overlay overlay-bg"></div>
+    <owl-carousel-o [options]="settings">
+        <!-- Data -->
+        <ng-container *ngFor="let item of banner">
+            <ng-template carouselSlide>
+                <div class="item section-padding" [style.background-image]="'url('+item.bgimage+')'">
+                    <div class="container">
+                        <div class="intro_text white_text">
+                            <h1>{{item.title}}</h1>
+                            <p>{{item.text}}</p>
+                            <a routerLink="/event" class="btn dark-btn templezen-top-btn">Explore Events</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <!-- Data -->
+    </owl-carousel-o>
+</section>
